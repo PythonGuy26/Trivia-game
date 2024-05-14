@@ -1,6 +1,6 @@
 import socket
 import chatlib  # To use chatlib functions or consts, use chatlib.****
-
+import time
 SERVER_IP = "127.0.0.1"  # Our server will run on same computer as client
 SERVER_PORT = 5678
 
@@ -77,12 +77,10 @@ def play_question(conn):
         print("No more questions, game over!")
         exit()
     question_num = print_question(question)
-    answer = input("What is your answer")
+    answer = input("What is your answer: ")
     while answer not in ["1", "2", "3", "4"]:
-        print(type(answer))
-        answer = input("Invalid selection, try again")
+        answer = input("Invalid selection, try again: ")
     code, message = build_send_recv_parse(conn, chatlib.PROTOCOL_CLIENT["send_answer"], question_num+chatlib.DATA_DELIMITER+answer)
-    print(question_num)
     if code == chatlib.PROTOCOL_SERVER["correct_answer"]:
         print("Correct!!!")
     else:
@@ -119,9 +117,12 @@ b        Get my score
 c        Get high score
 d        Get logged users
 q        Quit""")
-        answer = input("please enter your choice:")
+        answer = input("please enter your choice:  ")
         if answer == "a":
-            play_question(connection)
+            another_question = "y"
+            while another_question.lower() == "y" or another_question.lower() == "yes":
+                play_question(connection)
+                another_question = input("do you want to play another question? y or n:  ")
         elif answer == "b":
             get_score(connection)
         elif answer == "c":
@@ -130,10 +131,10 @@ q        Quit""")
             get_logged_users(connection)
         elif answer == "q":
             logout(connection)
+            time.sleep(3)
             exit()
 
 
 
 if __name__ == '__main__':
     main()
-
