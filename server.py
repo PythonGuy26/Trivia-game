@@ -1,5 +1,5 @@
 ##############################################################################
-# server.py
+                                   # server.py
 ##############################################################################
 import time
 import random
@@ -116,9 +116,9 @@ def setup_socket():
    | || |   | | \ V / | || (_| |
    |_||_|   |_|  \_/  |_| \__,_|""")
     print("Welcome to Trivia Server!")
-    #time.sleep(1)
-    #loading_progress()
-    #time.sleep(1)
+    time.sleep(1)
+    loading_progress()
+    time.sleep(1)
     print("\nServer up and running")
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server_socket.bind((SERVER_IP, SERVER_PORT))
@@ -242,7 +242,6 @@ def main():
             while True:                        # client massage analyse
                 code, msg = recv_message_and_parse(client_socket)
                 close_checking(client_socket, code)    # check for abruptly disconnecting
-                print(code, msg)
                 if code == chatlib.PROTOCOL_CLIENT["ask_for_question"]:
                     handle_question_message(client_socket, user_name)
                 elif code == chatlib.PROTOCOL_CLIENT["send_answer"]:
