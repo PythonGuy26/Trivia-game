@@ -17,7 +17,7 @@ PROTOCOL_CLIENT = {"login_msg": "LOGIN",
                    "high_score_msg": "HIGHSCORE",
                    "ask_for_question": "GET_QUESTION",
                    "send_answer": "SEND_ANSWER",
-                   "logged_users_msg": "LOGGED"
+                   "logged_users_msg": "LOGGED"}
 
 PROTOCOL_SERVER = {"login_ok_msg": "LOGIN_OK",
                    "login_failed_msg": "ERROR",
@@ -27,7 +27,7 @@ PROTOCOL_SERVER = {"login_ok_msg": "LOGIN_OK",
                    "correct_answer": "CORRECT_ANSWER",
                    "wrong_answer": "WRONG_ANSWER",
                    "logged_user_msg": "LOGGED_ANSWER",
-                   "no_more_questions": "NO_QUESTIONS"
+                   "no_more_questions": "NO_QUESTIONS"}
 
 ERROR_RETURN = None  # What is returned in case of an error
 
